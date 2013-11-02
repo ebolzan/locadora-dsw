@@ -13,18 +13,16 @@ import javax.inject.Named;
  * @author evandro, luiz
  */
 
-@Named("cliente")
+@Named
 @SessionScoped
 public class Cliente extends User implements Serializable{    
     private String telefone;
-    private Boolean ativo;
+    private Boolean ativo = true;
 
-    public Cliente(String nome, String endereco, String email, String telefone, Boolean ativo) {
-        super(nome, endereco, email);
-        this.telefone = telefone;
-        this.ativo = ativo;
+    public Cliente() {        
     }
-        
+    
+    
     public String getTelefone() {
         return telefone;
     }
@@ -41,7 +39,10 @@ public class Cliente extends User implements Serializable{
         this.ativo = ativo;
     }
     
-    
+    public String getSaudacao()
+    {                   
+        return "" + this.getNome() + " "+ this.getEmail();
+    }            
            
         
 }
