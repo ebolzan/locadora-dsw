@@ -4,23 +4,23 @@
 
 package model;
 
+import java.math.BigDecimal;
 import java.io.Serializable;
-import java.util.Date;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+//import javax.enterprise.context.SessionScoped;
+//import javax.inject.Named;
 
 /**
  *
  * @author evandro, luiz
  */
 
-@Named("dvd")
-@SessionScoped
+//@Named("dvd")
+//@SessionScoped
 public class Dvd implements Serializable{
     
     //valores de filmes conforme tipo
-    private static final Double LANC = new Double("3.50");
-    private static final Double NORMAL = new Double("2.00");    
+    private static final BigDecimal LANC = new BigDecimal("3.50");
+    private static final BigDecimal NORMAL = new BigDecimal("2.00");    
     
     private String titulo;
     private String categoria;    
@@ -48,7 +48,7 @@ public class Dvd implements Serializable{
         this.categoria = categoria;
     }     
 
-    public Boolean isLancamento() {
+    public Boolean getLancamento() {
         return lancamento;
     }
 
