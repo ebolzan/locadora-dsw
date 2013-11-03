@@ -8,16 +8,20 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form prependId="false">
-            <h:inputText id="nome" value="#{cliente.nome}" />
-            <h:inputText id="email"   value="#{cliente.email}" />
-            <h:inputText id="endereco"   value="#{cliente.endereco}" />
-            <h:inputText id="telefone"   value="#{cliente.telefone}" />  
+        <h:form id="cadastro" prependId="false">
+            <label>Nome</label>
+            <h:inputText id="nome" value="#{cliente.nome}" required="true" /><br/>
+            <label>Email</label>
+            <h:inputText id="email"  value="#{cliente.email}" /><br/>
+            <label>Endereço</label>
+            <h:inputText id="endereco"   value="#{cliente.endereco}" /><br/>
+            <label>Telefone</label>
+            <h:inputText id="telefone"   value="#{cliente.telefone}" />  <br/>
             <h:commandButton value="login">
                 <f:ajax execute="nome email"   render="saida" />
             </h:commandButton>
             
-            <h3><h:outputFormat id="saida" value="#{model.cliente.saudacao}" /></h3>
+            <h3><h:outputFormat id="saida" value="#{cliente.saudacao}" /></h3>
         </h:form>
     </h:body>
 </html>

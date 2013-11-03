@@ -40,8 +40,13 @@ public class Cliente extends User implements Serializable{
     }
     
     public String getSaudacao()
-    {                   
-        return "" + this.getNome() + " "+ this.getEmail();
+    {  
+        if(this.getNome() != null)
+            return "" + this.getNome() + " "+ this.getEmail();
+        else
+            return null;
+        
+        //return "" + this.getNome() + " "+ this.getEmail();
     }            
            
         

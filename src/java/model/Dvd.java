@@ -30,8 +30,7 @@ public class Dvd implements Serializable{
         this.titulo = titulo;
         this.categoria = categoria;
         this.lancamento = lancamento;
-    }
-    
+    }    
     
     public String getTitulo() {
         return titulo;
