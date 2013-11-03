@@ -1,28 +1,75 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       >
     <h:head>
-        <title>Facelet Title</title>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
     </h:head>
     <h:body>
-        <h:form id="cadastro" prependId="false">
-            <label>Nome</label>
-            <h:inputText id="nome" value="#{cliente.nome}" required="true" /><br/>
-            <label>Email</label>
-            <h:inputText id="email"  value="#{cliente.email}" /><br/>
-            <label>Endereço</label>
-            <h:inputText id="endereco"   value="#{cliente.endereco}" /><br/>
-            <label>Telefone</label>
-            <h:inputText id="telefone"   value="#{cliente.telefone}" />  <br/>
-            <h:commandButton value="login">
-                <f:ajax execute="nome email"   render="saida" />
-            </h:commandButton>
-            
-            <h3><h:outputFormat id="saida" value="#{cliente.saudacao}" /></h3>
-        </h:form>
+ 
+    	<h1>Cadastrar DVDs</h1>
+    	<h:form>
+    		<h:dataTable value="#{dvd.dvdList}" var="d"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Título</f:facet>
+    			#{d.titulo}
+ 
+    		</h:column>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Categoria</f:facet>
+    			#{d.categoria}
+ 
+    		</h:column>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Lançamento</f:facet>
+    			#{d.lancamento}
+ 
+    		</h:column>
+     		
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Action</f:facet>
+ 
+    			<h:commandLink value="Delete" 
+                                   action="#{dvd.deleteAction(d)}" />
+ 
+    		</h:column>
+ 
+    		</h:dataTable>
+ 
+    		<h3>Novo DVD</h3>
+    		<table>
+    		<tr>
+    			<td>titulo:</td>
+    			<td><h:inputText size="10" value="#{dvd.titulo}" /></td>
+    		</tr>
+    		<tr>
+    			<td>categoria:</td>
+    			<td><h:inputText size="20" value="#{dvd.categoria}" /></td>
+    		</tr>
+    		<tr>
+    			<td>lancamento:</td>
+                        <td><h:selectBooleanCheckbox value="#{dvd.lancamento}" /></td>    			
+    		</tr>
+    		</table>
+ 
+    		<h:commandButton value="Add" action="#{dvd.addAction}" />
+ 
+    	</h:form>
     </h:body>
 </html>
 
