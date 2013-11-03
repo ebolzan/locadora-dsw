@@ -12,47 +12,53 @@
  
     	<h1>Cadastrar DVDs</h1>
     	<h:form>
-    		<h:dataTable value="#{dvd.dvdList}" var="d"
+            <h:dataTable value="#{dvd.dvdList}" var="d"
     			styleClass="order-table"
     			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
- 
+    			rowClasses="order-table-odd-row,order-table-even-row">
+                              
     		<h:column>
- 
     			<f:facet name="header">Título</f:facet>
-    			#{d.titulo}
- 
+                        <h:inputText value="#{d.titulo}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.titulo}" rendered="#{not d.editavel}" />
     		</h:column>
  
     		<h:column>
  
     			<f:facet name="header">Categoria</f:facet>
-    			#{d.categoria}
+                        <h:inputText value="#{d.categoria}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.categoria}" rendered="#{not d.editavel}" />
  
     		</h:column>
  
     		<h:column>
  
     			<f:facet name="header">Lançamento</f:facet>
-    			#{d.lancamento}
- 
+                        <h:graphicImage library="images" name="ok.jpeg" rendered="#{d.lancamento and not d.editavel}"/>
+                        <h:selectBooleanCheckbox value="#{d.lancamento}" rendered="#{d.editavel}" />
+                        
     		</h:column>
      		
  
     		<h:column>
  
-    			<f:facet name="header">Action</f:facet>
+    			<f:facet name="header">Ação</f:facet>
  
-    			<h:commandLink value="Delete" 
+                        <h:commandLink value="Editar" action="#{dvd.editAction(d)}" 
+                                       rendered="#{not d.editavel}" />
+                        
+                        &nbsp;&nbsp;
+                        <h:commandLink value="Deletar" 
                                    action="#{dvd.deleteAction(d)}" />
  
     		</h:column>
  
-    		</h:dataTable>
+            </h:dataTable>
+            
+            <h:commandButton value="Salvar Alterações" action="#{dvd.saveAction}" />
  
-    		<h3>Novo DVD</h3>
-                <h:panelGrid columns="2">
+            <h3>Novo DVD</h3>
+            <h:panelGrid columns="2">
                     
     			titulo:
     			<h:inputText size="10" value="#{dvd.titulo}" />
@@ -63,9 +69,9 @@
     			lancamento:
                         <h:selectBooleanCheckbox value="#{dvd.lancamento}" />
     		
-                </h:panelGrid>
+            </h:panelGrid>
  
-    		<h:commandButton value="Add" action="#{dvd.addAction}" />
+            <h:commandButton value="Add" action="#{dvd.addAction}" />
  
     	</h:form>
     </h:body>

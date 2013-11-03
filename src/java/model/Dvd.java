@@ -25,6 +25,7 @@ public class Dvd implements Serializable{
     private String titulo;
     private String categoria;    
     private Boolean lancamento;
+    private Boolean editavel;
 
     public Dvd(String titulo, String categoria, Boolean lancamento) {
         this.titulo = titulo;
@@ -55,4 +56,13 @@ public class Dvd implements Serializable{
     public void setLancamento(Boolean lancamento) {
         this.lancamento = lancamento;
     }        
+
+    public Boolean getEditavel() {
+        return editavel;
+    }
+
+    public void setEditavel(Boolean editavel) {
+        this.editavel = editavel;
+    }
+    
 }
