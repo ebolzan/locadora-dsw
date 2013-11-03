@@ -63,6 +63,5 @@ public class Dvd implements Serializable{
 
     public void setEditavel(Boolean editavel) {
         this.editavel = editavel;
-    }
-    
+    }    
 }

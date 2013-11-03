@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h3> Dados do cliente:</h3>
+        <h4><b>Nome: </b>#{cliente.nome}</h4>
+        <h4><b>Email: </b>#{cliente.email}</h4>
+        <h4><b>Endereço: </b>#{cliente.endereco}</h4>
+        <h4><b>Telefone: </b>#{cliente.telefone}</h4>                
+        
+        
+        <!--form de locacao de dvd-->
+        <h:form id="form2">
+            <h:inputHidden value="#{cliente}" />                        
+            
+            
+        
+        </h:form>
+        
+    </h:body>
+</html>
+
