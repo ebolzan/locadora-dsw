@@ -11,7 +11,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author evandro
+ * @author evandro, luiz
  */
 
 @Named("locacao")
