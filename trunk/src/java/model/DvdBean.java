@@ -21,6 +21,7 @@ public class DvdBean implements Serializable{
     private String titulo;
     private String categoria;    
     private Boolean lancamento;
+    private Boolean editavel;
 
     public String getTitulo() {
         return titulo;
@@ -45,6 +46,15 @@ public class DvdBean implements Serializable{
     public void setLancamento(Boolean lancamento) {
         this.lancamento = lancamento;
     }
+
+    public Boolean getEditavel() {
+        return editavel;
+    }
+
+    public void setEditavel(Boolean editavel) {
+        this.editavel = editavel;
+    }
+    
     
     
 	
@@ -68,9 +78,23 @@ public class DvdBean implements Serializable{
     }
  
     public String deleteAction(Dvd dvd) {
-
 	dvdList.remove(dvd);
 	return null;
     }
+    
+    public String editAction(Dvd dvd) {
+	dvd.setEditavel(true);
+	return null;
+    }
+    
+    public String saveAction() {
+ 
+	// Altera o valor de editavel em todos os itens.
+	for (Dvd dvd : dvdList){
+            dvd.setEditavel(false);            
+	}
+	// volta para a pagina atual
+	return null;
+    }    
 }
 
