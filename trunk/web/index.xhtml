@@ -52,20 +52,18 @@
     		</h:dataTable>
  
     		<h3>Novo DVD</h3>
-    		<table>
-    		<tr>
-    			<td>titulo:</td>
-    			<td><h:inputText size="10" value="#{dvd.titulo}" /></td>
-    		</tr>
-    		<tr>
-    			<td>categoria:</td>
-    			<td><h:inputText size="20" value="#{dvd.categoria}" /></td>
-    		</tr>
-    		<tr>
-    			<td>lancamento:</td>
-                        <td><h:selectBooleanCheckbox value="#{dvd.lancamento}" /></td>    			
-    		</tr>
-    		</table>
+                <h:panelGrid columns="2">
+                    
+    			titulo:
+    			<h:inputText size="10" value="#{dvd.titulo}" />
+                            
+    			categoria:
+                        <h:inputText size="20" value="#{dvd.categoria}" />
+    		
+    			lancamento:
+                        <h:selectBooleanCheckbox value="#{dvd.lancamento}" />
+    		
+                </h:panelGrid>
  
     		<h:commandButton value="Add" action="#{dvd.addAction}" />
  
