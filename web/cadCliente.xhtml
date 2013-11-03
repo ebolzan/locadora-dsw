@@ -1,24 +1,90 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       >
     <h:head>
-        <title>Facelet Title</title>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
     </h:head>
     <h:body>
-        <h:form id="formulario" >
-            <h:inputText id="nome" value="#{cliente.nome}" label="nome"/>
-            <h:inputText id="email"   value="#{cliente.email}" />
-            <h:inputText id="endereco"   value="#{cliente.endereco}" />
-            <h:inputText id="telefone"   value="#{cliente.telefone}" />  
-            <h:commandButton value="login">
-                <f:ajax execute="nome email"   render="saida" />
-            </h:commandButton>
+ 
+    	<h1>Cadastrar Clientes</h1>
+    	<h:form>
+            <h:dataTable value="#{cliente.clienteList}" var="d"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+                              
+    		<h:column>
+    			<f:facet name="header">Nome</f:facet>
+                        <h:inputText value="#{d.nome}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.nome}" rendered="#{not d.editavel}" />
+    		</h:column>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">telefone</f:facet>
+                        <h:inputText value="#{d.telefone}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.telefone}" rendered="#{not d.editavel}" />
+ 
+    		</h:column>
+                
+                <h:column>
+ 
+    			<f:facet name="header">Email</f:facet>
+                        <h:inputText value="#{d.email}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.email}" rendered="#{not d.editavel}" />
+                        
+    		</h:column>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Endereço</f:facet>
+                        <h:inputText value="#{d.endereco}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.endereco}" rendered="#{not d.editavel}" />
+                        
+    		</h:column>
+     		
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Ação</f:facet>
+ 
+                        <h:commandLink value="Editar" action="#{cliente.editAction(d)}" 
+                                       rendered="#{not d.editavel}" />
+                        
+                        &nbsp;&nbsp;
+                        <h:commandLink value="Deletar" 
+                                   action="#{cliente.deleteAction(d)}" />
+ 
+    		</h:column>
+ 
+            </h:dataTable>
             
-            <h3><h:outputFormat id="saida" value="#{cliente.saudacao}" /></h3>
-        </h:form>
+            <h:commandButton value="Salvar Alterações" action="#{cliente.saveAction}" />
+ 
+            <h3>Novo Cliente</h3>
+            <h:panelGrid columns="2">
+                    
+    			Nome:
+    			<h:inputText size="10" value="#{cliente.nome}" />
+                            
+    			Telefone:
+                        <h:inputText size="20" value="#{cliente.telefone}" />
+    		
+    			Endereço:
+                        <h:inputText size="60" value="#{cliente.endereco}" />
+                        
+                        Email:
+                        <h:inputText size="60" value="#{cliente.email}" />
+    		
+            </h:panelGrid>
+ 
+            <h:commandButton value="Add" action="#{cliente.addAction}" />
+ 
+    	</h:form>
     </h:body>
 </html>
 
