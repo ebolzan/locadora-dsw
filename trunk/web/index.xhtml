@@ -35,7 +35,7 @@
     		<h:column>
  
     			<f:facet name="header">Lançamento</f:facet>
-                        <h:graphicImage library="images" name="ok.jpeg" rendered="#{d.lancamento and not d.editavel}"/>
+                        <h:graphicImage library="images" name="ok.png" rendered="#{d.lancamento and not d.editavel}"/>
                         <h:selectBooleanCheckbox value="#{d.lancamento}" rendered="#{d.editavel}" />
                         
     		</h:column>
@@ -74,7 +74,7 @@
  
             <h:commandButton value="Add" action="#{dvd.addAction}" />
  
-    	</h:form>
+    	</h:form>        
         
         <ui:include src="footer.xhtml" />
     </h:body>
