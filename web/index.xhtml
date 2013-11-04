@@ -9,6 +9,7 @@
     	<h:outputStylesheet library="css" name="table-style.css"  />
     </h:head>
     <h:body>
+        <ui:include src="header.xhtml" />
  
     	<h1>Cadastrar DVDs</h1>
     	<h:form>
@@ -74,6 +75,8 @@
             <h:commandButton value="Add" action="#{dvd.addAction}" />
  
     	</h:form>
+        
+        <ui:include src="footer.xhtml" />
     </h:body>
 </html>
 
