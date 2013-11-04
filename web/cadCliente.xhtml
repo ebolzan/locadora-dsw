@@ -10,6 +10,7 @@
     </h:head>
     <h:body>
     <ui:include src="header.xhtml" />  
+    <div class="content">
     	<h1>Cadastrar Clientes</h1>
     	<h:form>
             <h:dataTable value="#{cliente.clienteList}" var="d"
@@ -85,7 +86,7 @@
             <h:commandButton value="Add" action="#{cliente.addAction}" />
  
     	</h:form>
-        
+        </div>
         <ui:include src="footer.xhtml" />
     </h:body>
 </html>

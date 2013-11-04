@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <ui:include src="header.xhtml" />
- 
+        <div class="content">
     	<h1>Cadastrar DVDs</h1>
     	<h:form>
             <h:dataTable value="#{dvd.dvdList}" var="d"
@@ -75,7 +75,7 @@
             <h:commandButton value="Add" action="#{dvd.addAction}" />
  
     	</h:form>        
-        
+        </div>
         <ui:include src="footer.xhtml" />
     </h:body>
 </html>
