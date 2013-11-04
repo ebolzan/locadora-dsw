@@ -9,7 +9,7 @@
     	<h:outputStylesheet library="css" name="table-style.css"  />
     </h:head>
     <h:body>
- 
+    <ui:include src="header.xhtml" />  
     	<h1>Cadastrar Clientes</h1>
     	<h:form>
             <h:dataTable value="#{cliente.clienteList}" var="d"
@@ -85,6 +85,8 @@
             <h:commandButton value="Add" action="#{cliente.addAction}" />
  
     	</h:form>
+        
+        <ui:include src="footer.xhtml" />
     </h:body>
 </html>
 
