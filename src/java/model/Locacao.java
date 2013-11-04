@@ -5,26 +5,26 @@
 package model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
- *
  * @author evandro, luiz
  */
 
-@Named("locacao")
-@SessionScoped
+
 public class Locacao implements Serializable{
     
     private Cliente cliente;
     private Dvd dvd;
     private int diasDevolver;
     private Date dataCadastro;
-    private Double valor;
+    private BigDecimal valor;
+    private Boolean editavel;
 
-    public Locacao(Cliente cliente, Dvd dvd, int diasDevolver, Date dataCadastro, Double valor) {
+    public Locacao(Cliente cliente, Dvd dvd, int diasDevolver, Date dataCadastro, BigDecimal valor) {
         this.cliente = cliente;
         this.dvd = dvd;
         this.diasDevolver = diasDevolver;
@@ -64,11 +64,29 @@ public class Locacao implements Serializable{
         this.dataCadastro = dataCadastro;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
-    }            
+    }   
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Boolean getEditavel() {
+        return editavel;
+    }
+
+    public void setEditavel(Boolean editavel) {
+        this.editavel = editavel;
+    }
+
+           
 }

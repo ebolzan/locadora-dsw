@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+    	<h:outputStylesheet library="css" name="table-style.css"  />
+    </h:head>
+    <h:body>
+ 
+    	<h1>Cadastrar Locação</h1>
+    	<h:form>
+            <h:dataTable value="#{locacao.locacaoList}" var="d"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row">
+                              
+    		<h:column>
+    			<f:facet name="header">Cliente</f:facet>
+                        <h:inputText value="#{d.cliente.nome}" size="10" rendered="#{d.cliente.editavel}" />
+                        <h:outputText value="#{d.cliente.nome}" rendered="#{not d.cliente.editavel}" />
+    		</h:column>
+                
+                <h:column>
+    			<f:facet name="header">Dvd</f:facet>
+                        <h:inputText value="#{d.dvd.titulo}" size="10" rendered="#{d.dvd.editavel}" />
+                        <h:outputText value="#{d.dvd.titulo}" rendered="#{not d.dvd.editavel}" />
+    		</h:column>
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Dias para devolver</f:facet>
+                        <h:inputText value="#{d.diasDevolver}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.diasDevolver}" rendered="#{not d.editavel}" />
+ 
+    		</h:column>
+                
+                <h:column>
+ 
+    			<f:facet name="header">Data cadastro</f:facet>
+                        <h:inputText value="#{d.dataCadastro}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.dataCadastro}" rendered="#{not d.editavel}" />
+ 
+    		</h:column>
+                
+                <h:column>
+ 
+    			<f:facet name="header">Valor</f:facet>
+                        <h:inputText value="#{d.valor}" size="10" rendered="#{d.editavel}" />
+                        <h:outputText value="#{d.valor}" rendered="#{not d.editavel}" />
+                        
+    		</h:column>     		
+     		
+ 
+    		<h:column>
+ 
+    			<f:facet name="header">Ação</f:facet>
+ 
+                        <h:commandLink value="Editar" action="#{locacao.editAction(d)}" 
+                                       rendered="#{not d.editavel}" />
+                        
+                        &nbsp;&nbsp;
+                        <h:commandLink value="Deletar" 
+                                   action="#{locacao.deleteAction(d)}" />
+ 
+    		</h:column>
+ 
+            </h:dataTable>
+            
+            <h:commandButton value="Salvar Alterações" action="#{locacao.saveAction}" />
+ 
+            <h3>Novo Locação</h3>
+            <h:panelGrid columns="2">
+                    
+    			Cliente:
+                        <h:inputText size="10" value="#{locacao.cliente}" />
+                            
+    			Cliente:
+                        <h:inputText size="20" value="#{locacao.dvd}" />
+    		
+    			Dias a devolver:
+                        <h:inputText size="60" value="#{locacao.diasDevolver}" />
+                        
+                        Data cadastro:
+                        <h:inputText size="60" value="#{locacao.dataCadastro}" />
+                        
+                        Valor:
+                        <h:inputText size="60" value="#{locacao.dataCadastro}" />
+    		
+            </h:panelGrid>
+ 
+            <h:commandButton value="Add" action="#{locacao.addAction}" />
+ 
+    	</h:form>
+    </h:body>
+</html>
+
