@@ -1,10 +1,23 @@
-/* 
-    Document   : table-style
-    Created on : Nov 3, 2013, 11:08:17 AM
-    Author     : lfschleder
-    Description:
-        Purpose of the stylesheet follows.
-*/
+body {
+	float: left;
+	width: 100%;
+        font-family: Helvetica, Arial, sans-serif;         
+        background-color: #ededed;
+        background-image: url(images/bg.png);
+        background-repeat: repeat;
+        background-attachment: fixed;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Helvetica, Arial, sans-serif;  
+}
+
 
 .order-table{   
 	border-collapse:collapse;
@@ -15,13 +28,13 @@
 	background:none repeat scroll 0 0 #E5E5E5;
 	border-bottom:1px solid #BBBBBB;
 	padding:16px;    
-        font-family: Arial; 
+        
 }
  
 .order-table-odd-row{
 	text-align:center;
-	background:none repeat scroll 0 0 #FFFFFFF;
-	border-top:1px solid #BBBBBB;
+	background:none repeat scroll 0 0 #E9E9E9;
+	border-top:1px solid #BBBBBB;       
 }
  
 .order-table-even-row{
