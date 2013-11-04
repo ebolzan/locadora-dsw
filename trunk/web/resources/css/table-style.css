@@ -43,3 +43,22 @@ h6 {
 	border-top:1px solid #BBBBBB;
 }
 
+.header-esq {
+    background:none repeat scroll 0 0 #E9E9E9;
+    padding:16px;  
+    font-size:16pt;
+    float: left;
+}
+
+.header-dir {
+    background:none repeat scroll 0 0 #E9E9E9;
+    text-align:center;
+    padding:16px;  
+    float: left;
+}
+
+.footer {
+    background: black;
+    padding:16px;  
+    color: white;
+}
